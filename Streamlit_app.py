@@ -1,9 +1,9 @@
 import streamlit as st
 import requests
 
-# ── CONFIG ────────────────────────────────────────────────────────────────────
+
 API_URL = "https://personality-predictor-jvx8.onrender.com/predict"   
-# ──────────────────────────────────────────────────────────────────────────────
+
 
 st.set_page_config(
     page_title="Personality Predictor",
@@ -15,7 +15,7 @@ st.title("🧠 Personality Predictor")
 st.caption("Find out if you're an **Introvert** or **Extrovert** based on your behavioral traits.")
 st.divider()
 
-# ── INPUT FORM ────────────────────────────────────────────────────────────────
+# ── INPUT FORM
 with st.form("prediction_form"):
     st.subheader("Enter your details")
 
@@ -57,7 +57,7 @@ with st.form("prediction_form"):
 
     submitted = st.form_submit_button("🔮 Predict Personality", use_container_width=True)
 
-# ── PREDICTION ────────────────────────────────────────────────────────────────
+# ── PREDICTION
 if submitted:
     payload = {
         "Time_spent_Alone":          time_alone,
@@ -88,7 +88,7 @@ if submitted:
             st.error(f"❌ Unexpected error: {e}")
             st.stop()
 
-    # ── RESULT DISPLAY ────────────────────────────────────────────────────────
+    # ── RESULT DISPLAY 
     st.divider()
     personality   = result["personality"]
     confidence    = result["confidence"]
