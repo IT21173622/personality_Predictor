@@ -35,17 +35,7 @@ Returns the predicted personality type.
 }
 ```
 
-| Field | Type | Description | Range |
-|-------|------|-------------|-------|
-| `Time_spent_Alone` | float | Hours per day alone | 0–11 |
-| `Stage_fear` | string | "Yes" or "No" | — |
-| `Social_event_attendance` | float | Events per month | 0–10 |
-| `Going_outside` | float | Times per week | 0–7 |
-| `Drained_after_socializing` | string | "Yes" or "No" | — |
-| `Friends_circle_size` | float | Number of close friends | 0–15 |
-| `Post_frequency` | float | Social media posts per week | 0–10 |
 
-> All fields are optional — missing values will be imputed automatically.
 
 **Response:**
 
@@ -87,16 +77,11 @@ curl -X POST https://YOUR_RENDER_URL/predict \
 ---
 
 ## Deployment to Render.com (Free)
+https://personality-predictor-jvx8.onrender.com/
 
-1. Push this folder to a **GitHub repository**
-2. Go to [render.com](https://render.com) → **New Web Service**
-3. Connect your GitHub repo
-4. Set:
-   - **Build Command:** `pip install -r requirements.txt`
-   - **Start Command:** `gunicorn app:app --bind 0.0.0.0:$PORT`
-5. Click **Deploy** — you'll get a public URL in ~2 minutes
+## Streamlit Cloud
+https://personality-predictor-cv3x6scmyej6rfvejp5tgs.streamlit.app/
 
-The `render.yaml` file handles all configuration automatically.
 
 ---
 
@@ -106,18 +91,10 @@ The `render.yaml` file handles all configuration automatically.
 pip install -r requirements.txt
 python app.py
 # API running at http://localhost:5000
+
+streamlit run streamlit_app.py
+http://localhost:8501
 ```
 
----
 
-## Files
 
-```
-├── app.py                          # Flask API
-├── personality_model.pkl           # Trained Gradient Boosting model
-├── requirements.txt                # Python dependencies
-├── render.yaml                     # Render.com deployment config
-├── Procfile                        # Gunicorn process file
-├── personality_model_notebook.ipynb # Training notebook (deliverable)
-└── README.md                       # This file
-```
