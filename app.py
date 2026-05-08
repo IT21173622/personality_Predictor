@@ -1,8 +1,3 @@
-"""
-Personality Predictor API
-Predicts Introvert / Extrovert based on behavioral characteristics.
-"""
-
 from flask import Flask, request, jsonify
 import pandas as pd
 import joblib
